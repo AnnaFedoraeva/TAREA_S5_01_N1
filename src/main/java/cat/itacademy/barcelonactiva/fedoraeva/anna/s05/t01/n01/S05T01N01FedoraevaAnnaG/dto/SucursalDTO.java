@@ -24,7 +24,7 @@ public class SucursalDTO  {
 	private String paisSucursal;
 	private String tipusSucursal;
 	static private List<String> paises = new ArrayList<String>(Arrays.asList("austria", "belgium", "bulgaria",
-			"croatia", "republic of Cyprus", "czech Republic", "denmark", "estonia", "finland", "france", "germany",
+			"croatia", "republic of Cyprus", "czech republic", "denmark", "estonia", "finland", "france", "germany",
 			"greece", "hungary", "ireland", "italy", "latvia", "lithuania", "luxembourg", "malta", "netherlands",
 			"poland", "portugal", "romania", "slovakia", "slovenia", "spain", "sweden"));
 
@@ -36,7 +36,7 @@ public class SucursalDTO  {
 		if (paises.contains(paisSucursal.toLowerCase())) {
 			mensaje = "EU";
 		} else {
-			mensaje = "Fuera de EU";
+			mensaje = "No es pais de EU";
 		}
 		setTipusSucursal(mensaje);
 	}
