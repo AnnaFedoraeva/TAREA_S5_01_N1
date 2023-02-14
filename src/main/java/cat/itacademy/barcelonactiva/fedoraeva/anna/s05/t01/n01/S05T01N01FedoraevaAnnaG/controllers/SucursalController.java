@@ -1,29 +1,18 @@
 package cat.itacademy.barcelonactiva.fedoraeva.anna.s05.t01.n01.S05T01N01FedoraevaAnnaG.controllers;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
-import org.apache.commons.lang3.StringUtils;
+import java.util.Collections;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import cat.itacademy.barcelonactiva.fedoraeva.anna.s05.t01.n01.S05T01N01FedoraevaAnnaG.dto.SucursalDTO;
-import cat.itacademy.barcelonactiva.fedoraeva.anna.s05.t01.n01.S05T01N01FedoraevaAnnaG.respository.SucursalRespository;
 import cat.itacademy.barcelonactiva.fedoraeva.anna.s05.t01.n01.S05T01N01FedoraevaAnnaG.service.SucursalService;
 import cat.itacademy.barcelonactiva.fedoraeva.anna.s05.t01.n01.S05T01N01FedoraevaAnnaG.sucursal.Sucursal;
 
@@ -33,7 +22,6 @@ public class SucursalController {
 
 	@Autowired
 	private SucursalService sucursalService;
-
 
 	@GetMapping({ "/sucursal/add" })
 	public String mostrarFormularioDeAñadirSucursal(Model modelo) {
@@ -58,7 +46,6 @@ public class SucursalController {
 	@PostMapping({ "/sucursal/{id}" })
 	public String actualizarSucursal(@PathVariable int id, @ModelAttribute("sucursal") Sucursal sucursal, Model model) {
 		Sucursal sucursalE = sucursalService.getSucursalById(id);
-		sucursalE.setPk_SucursalID(sucursal.getPk_SucursalID());
 		sucursalE.setNomSucursal(sucursal.getNomSucursal());
 		sucursalE.setPaisSucursal(sucursal.getPaisSucursal());
 		sucursalService.addSucursal(sucursalE);
@@ -80,6 +67,7 @@ public class SucursalController {
 		for (Sucursal sucursal : sucursales) {
 			sucursalesDTO.add(new SucursalDTO(sucursal));
 		}
+		Collections.sort(sucursalesDTO, (x, y) -> x.getPk_SucursalID().compareTo(y.getPk_SucursalID()));
 		modelo.addAttribute("listaSucursales", sucursalesDTO);
 		return "index";
 	}
@@ -87,7 +75,7 @@ public class SucursalController {
 	@GetMapping({ "/sucursal/getOne/{id}" })
 	public String getSucursal(@PathVariable int id, Model model) {
 		model.addAttribute("Sucursal", sucursalService.getSucursalById(id));
-		return "index";
+		return "view";
 	}
 
 }

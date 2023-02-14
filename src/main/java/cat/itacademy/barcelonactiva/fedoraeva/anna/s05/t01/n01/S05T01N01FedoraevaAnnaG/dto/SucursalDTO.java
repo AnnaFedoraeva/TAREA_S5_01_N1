@@ -24,7 +24,7 @@ public class SucursalDTO  {
 	private String paisSucursal;
 	private String tipusSucursal;
 	static private List<String> paises = new ArrayList<String>(Arrays.asList("austria", "belgium", "bulgaria",
-			"croatia", "republic of Cyprus", "czech republic", "denmark", "estonia", "finland", "france", "germany",
+			"croatia", "republic of cyprus", "czech republic", "denmark", "estonia", "finland", "france", "germany",
 			"greece", "hungary", "ireland", "italy", "latvia", "lithuania", "luxembourg", "malta", "netherlands",
 			"poland", "portugal", "romania", "slovakia", "slovenia", "spain", "sweden"));
 

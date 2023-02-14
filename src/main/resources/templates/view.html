@@ -22,9 +22,9 @@
  	<div class = "container">
  		<div class= "row">
  			<div class="col-lg-6 col-md-6 container justify-content-center card">
- 				<h1 class="text-center"> Update sucursal </h1>
+ 				<h1 class="text-center"> View sucursal </h1>
  				<div class= "card-body">
- 					<form th:action="@{/sucursal/{id}(id=${Sucursal.pk_SucursalID})}" th:object="${Sucursal}" method= "POST">
+ 					<form th:action="@{/sucursal/{id}(id=${Sucursal.pk_SucursalID})}" th:object="${Sucursal}" method= "GET">
 	 					<div class= "form-group"> 
 	 						<label>ID: </label>
 	 						<input type="number" name="id" th:field="*{pk_SucursalID}" class="form-control" placeholder="" disabled> 						
@@ -32,17 +32,14 @@
 	 					<br>
 	 					<div class= "form-group"> 
 	 						<label>Name: </label>
-	 						<input type="text" name="name" th:field="*{nomSucursal}" class="form-control" placeholder= "Introduce el nombre del sucursal" > 						
+	 						<input type="text" name="name" th:field="*{nomSucursal}" class="form-control" placeholder= "" disabled > 						
 	 					</div>
 	 					<br>
 	 					<div class= "form-group">
 	 						<label>Country: </label>
-	 						<input type="text" name="country" th:field="*{paisSucursal}" class="form-control" placeholder= "Introduce el pais del sucursal"  > 						
+	 						<input type="text" name="country" th:field="*{paisSucursal}" class="form-control" placeholder= "" disabled > 						
 	 					</div>
 	 					<br>
-	 					<div class= "box-footer">
-	 						<button class= "btn btn-info"> Guardar </button>		
-	 					</div>
  					</form>
  				</div>	
  			</div>
