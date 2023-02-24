@@ -19,6 +19,16 @@ import cat.itacademy.barcelonactiva.fedoraeva.anna.s05.t01.n01.S05T01N01Fedoraev
 @Controller
 
 public class SucursalController {
+	
+//	http://localhost:9000/sucursal/add
+//
+//	http://localhost:9000/sucursal/update
+//
+//	http://localhost:9000/sucursal/delete/{id}
+//
+//	http://localhost:9000/sucursal/getOne/{id}
+//
+//	http://localhost:9000/sucursal/getAll
 
 	@Autowired
 	private SucursalService sucursalService;
